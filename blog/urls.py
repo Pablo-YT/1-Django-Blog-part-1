@@ -16,14 +16,17 @@ Including another URLconf
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import path
+from django.contrib import admin
+from blog.views import blog_page, title_view, root, home
 
 
-
-def blog_page(request):
-	return render(request, 'index.html')
 
 
 urlpatterns = [
-    path('blog/', blog_page)
+    path('blog/', blog_page),
+    path('admin/', admin.site.urls),
+    path('title/<int=id>', title_view, name="title"),
+    path('', root),
+    path('home/', home, name='home_page')
 ]
 

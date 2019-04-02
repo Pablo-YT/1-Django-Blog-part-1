@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blogs</title>
+</head>
+<body>
+    <h2>Blogs</h2>
+    {% for post in articles%}
+    <h1> {{post.title}} </h1>
+    <p>{{ post.body }}</p>
+    <p>{{ post.author }}</p>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blogs</title>
+</head>
+<body>
+    <h2>Blog Home!</h2>
+    {% for post in articles%}
+    <a href="{% url 'title' %}"><h1> {{post.title}} </h1></a>
+    <p>By: {{post.author}} on {{post.published_date}}</p>
+    {% endfor %}
+
+
+</body>
+</html>
