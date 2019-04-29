@@ -17,7 +17,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import path
 from django.contrib import admin
-from blog.views import blog_page, title_view, root, home
+from blog.views import blog_page, title_view, root, home, login_view, logout_view, special, article_view
 
 
 
@@ -25,8 +25,12 @@ from blog.views import blog_page, title_view, root, home
 urlpatterns = [
     path('blog/', blog_page),
     path('admin/', admin.site.urls),
-    path('title/<int=id>', title_view, name="title"),
+    path('title/<int:id>', title_view, name="title"),
     path('', root),
-    path('home/', home, name='home_page')
+    path('home/', home, name='home_page'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('special/', special, name='special'),
+    path('post/', article_view, name='post')
 ]
 

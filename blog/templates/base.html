@@ -7,11 +7,16 @@
 </head>
 <body>
     <h2>Blog Home!</h2>
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
     {% for post in articles%}
-    <a href="{% url 'title' %}"><h1> {{post.title}} </h1></a>
+    <a href="{% url 'title' id=post.pk %}"><h1> {{post.title}} </h1></a>
     <p>By: {{post.author}} on {{post.published_date}}</p>
     {% endfor %}
-
+    <a href="{% url 'post' %}">Post Something</a>
 
 </body>
 </html>
